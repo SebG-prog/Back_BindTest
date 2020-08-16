@@ -7,7 +7,7 @@ const Router = express.Router()
 
 Router.get("/allscores", (req, res) => {
     const token = req.headers['x-access-token']
-    const tokenData = jwt.verify(token, jwtSecret, (err, decoded) => {
+    const tokenData = jwt.verify(token, secret, (err, decoded) => {
         if (err) throw err;
         const sql = "SELECT id, username, score, genre FROM score WHERE user_id = ?"
         const values = [decoded.id]
@@ -51,7 +51,7 @@ Router.put("/updateScore/:id", (req, res) => {
 
 Router.post("/addScore", (req, res) => {
     const token = req.headers['x-access-token']
-    const tokenData = jwt.verify(token, jwtSecret, (err, decoded) => {
+    const tokenData = jwt.verify(token, secret, (err, decoded) => {
         if (err) throw err;
         const sql = "INSERT INTO score (user_id, username, score, genre) VALUES (?,?,?,?)"
         const values = [
