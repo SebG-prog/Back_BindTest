@@ -1,8 +1,7 @@
 const express = require("express")
 const jwt = require("jsonwebtoken")
 
-const connection = require("../helper/db.js")
-const jwtSecret = process.env.JWT_SECRET || require("../../jwtSecret.js")
+const { connection, secret } = require("../helper/config.js")
 
 const Router = express.Router()
 

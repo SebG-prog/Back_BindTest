@@ -1,7 +1,7 @@
 const express = require("express")
 const bcrypt = require('bcrypt')
 
-const connection = require("../helper/db.js")
+const { connection } = require("../helper/config.js")
 
 const Router = express.Router()
 
