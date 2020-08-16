@@ -8,7 +8,7 @@ const Router = express.Router()
 
 Router.get("/", (req, res) => {
     const token = req.headers['x-access-token']
-    const tokenData = jwt.verify(token, jwtSecret, (err, decoded) => {
+    const tokenData = jwt.verify(token, secret, (err, decoded) => {
         if (err) throw err
         const sql = "SELECT username FROM users WHERE id = ?"
         const values = [decoded.id]
@@ -43,7 +43,7 @@ Router.post("/login",(req, res) => {
                     id: id,
                     username: username,
                 }
-                const token = jwt.sign(tokenUserInfo, jwtSecret)
+                const token = jwt.sign(tokenUserInfo, secret)
                 res.header("Access-Control-Expose-Headers", "x-access-token")
                 res.set("x-access-token", token)
                 return res.status(201).send("The user is connected")

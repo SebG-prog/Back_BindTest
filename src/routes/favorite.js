@@ -9,7 +9,7 @@ const Router = express.Router()
 Router.get("/", (req, res) => {
 
     const token = req.headers['x-access-token']
-    const tokenData = jwt.verify(token, jwtSecret, (err, decoded) => {
+    const tokenData = jwt.verify(token, secret, (err, decoded) => {
         if (err) throw err;
         const sql = "SELECT track_id FROM favorite WHERE user_id = ?"
         const values = [decoded.id]
@@ -24,7 +24,7 @@ Router.get("/", (req, res) => {
 Router.post("/tracks", (req, res) => {
 
     const token = req.headers['x-access-token'] 
-    const tokenData = jwt.verify(token, jwtSecret, (err, decoded) => {
+    const tokenData = jwt.verify(token, secret, (err, decoded) => {
         if (err) throw err;
 
         const sql = "INSERT INTO favorite (user_id, track_id) VALUES (?, ?)"
@@ -43,7 +43,7 @@ Router.post("/tracks", (req, res) => {
 Router.delete("/tracks/:track_id", (req, res) => {
     const token = req.headers['x-access-token'] 
 
-    const tokenData = jwt.verify(token, jwtSecret, (err, decoded) => {
+    const tokenData = jwt.verify(token, secret, (err, decoded) => {
         if (err) throw err;
 
         const sql = "DELETE FROM favorite WHERE user_id = ? AND track_id = ?"
