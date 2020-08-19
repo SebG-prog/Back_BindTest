@@ -1,8 +1,8 @@
 
 # Thunder
-👉[The full README of the project is here](https://github.com/clrko/wild-thunder) 👈
+👉[The full README of the project is here](https://github.com/SebG-prog/WCS-P2-Thunder-Front-Mirror) 👈
 
-👉[The app is live here](https://wild-thunder.netlify.app/) 👈 
+👉[The app is live here](https://thunder-app.netlify.app) 👈 
 
 **Thunder** is a responsive musical quiz web application in which the user will test his current musical knowledge by guessing the artist name of the song being played. The frontend part enables any user to play the game either on a specific musical genre or in a cross-genre mode.
 
